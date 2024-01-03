@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div style="display: flex; justify-content: center">
+      <img
+        id="page"
+        src="https://global-zone.s3.ap-south-1.amazonaws.com/Home_01.jpg"
+      />
+    </div>
+    <script>
+      var imageArray = [
+        "https://global-zone.s3.ap-south-1.amazonaws.com/Home_01.jpg",
+        "https://global-zone.s3.ap-south-1.amazonaws.com/Who+We+Are_02.jpg",
+        "https://global-zone.s3.ap-south-1.amazonaws.com/Industries+And+Partners_03.jpg",
+        "https://global-zone.s3.ap-south-1.amazonaws.com/Collaborative+Relationships_04.jpg",
+        "https://global-zone.s3.ap-south-1.amazonaws.com/Capabilities+Listing_05.jpg",
+        "https://global-zone.s3.ap-south-1.amazonaws.com/Contact+Us_06.jpg",
+      ];
+      var index = 0;
+      document.addEventListener("contextmenu", (event) =>
+        event.preventDefault()
+      );
+      document.addEventListener("keydown", checkKey);
+
+      function checkKey(e) {
+        e = e || window.event;
+        const page = document.getElementById("page");
+
+        if (e.keyCode == "37") {
+          if (index >= 1) {
+            index--;
+            page.src = imageArray[index];
+          }
+        } else if (e.keyCode == "39") {
+          if (index < imageArray.length - 1) {
+            index++;
+            page.src = imageArray[index];
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
